@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Delete Your Account — Vermillion View</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --crimson: #DC143C;
+    --deep:    #1a0608;
+    --ink:     #1c1c1e;
+    --rule:    #e8e0d8;
+    --bg:      #faf8f5;
+  }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  header {
+    background: var(--deep);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(220,20,60,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(220,20,60,0.15);
+    border: 1px solid rgba(220,20,60,0.35);
+    border-radius: 999px;
+    padding: 6px 18px 6px 10px;
+    margin-bottom: 24px;
+  }
+  .logo-dot { width: 26px; height: 26px; background: var(--crimson); border-radius: 50%; }
+  .logo-badge span {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  header h1 em { color: var(--crimson); font-style: normal; }
+  header p {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .step-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--crimson);
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .step-body p { font-size: 15.5px; color: #444; margin: 0; }
+  .step-body a { color: var(--crimson); font-weight: 600; text-decoration: none; }
+  .step-body a:hover { text-decoration: underline; }
+  .step-body code {
+    background: #f5f0ee;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-family: monospace;
+    color: var(--crimson);
+  }
+
+  .info-box {
+    background: #fff8f8;
+    border: 1px solid rgba(220,20,60,0.2);
+    border-left: 4px solid var(--crimson);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 15.5px;
+    color: #444;
+  }
+  .info-box strong { color: var(--crimson); }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 40px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+
+  ul.data-list {
+    list-style: none;
+    padding: 0;
+  }
+  ul.data-list li {
+    padding: 10px 0 10px 24px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 15.5px;
+    color: #333;
+    position: relative;
+  }
+  ul.data-list li:last-child { border-bottom: none; }
+  ul.data-list li::before {
+    content: '▸';
+    color: var(--crimson);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-size: 12px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-delete { background: #ffe5e5; color: #c0392b; }
+  .badge-keep   { background: #fff3cd; color: #856404; }
+
+  footer {
+    text-align: center;
+    padding: 28px 24px;
+    border-top: 1px solid var(--rule);
+    color: #888;
+    font-size: 13px;
+    font-style: italic;
+  }
+  footer strong { color: var(--crimson); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">
+    <div class="logo-dot"></div>
+    <span>Vermillion View</span>
+  </div>
+  <h1>Delete Your <em>Account</em></h1>
+  <p>Request permanent deletion of your account and personal data</p>
+</header>
+
+<div class="container">
+
+  <div class="info-box">
+    <strong>Processing Time:</strong> All account deletion requests are processed within <strong>7 business days</strong> of receipt. You will receive a confirmation email once your account has been deleted.
+  </div>
+
+  <!-- Steps -->
+  <h2>How to Request Account Deletion</h2>
+
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h3>Open Your Email App</h3>
+      <p>Compose a new email to <a href="mailto:ramanghorpade2069@gmail.com">ramanghorpade2069@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h3>Use the Correct Subject Line</h3>
+      <p>Set the subject to: <code>Account Deletion Request — Vermillion View</code></p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h3>Include Your Account Email</h3>
+      <p>In the email body, include the email address you used to sign in to Vermillion View with Google. This helps us locate your account quickly.</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h3>Send &amp; Wait for Confirmation</h3>
+      <p>We will process your request within 7 business days and send a confirmation email to confirm your account has been deleted.</p>
+    </div>
+  </div>
+
+  <!-- What gets deleted -->
+  <h2>What Data is Deleted</h2>
+  <ul class="data-list">
+    <li>Your account profile — name, email address, profile photo <span class="badge badge-delete">Deleted</span></li>
+    <li>Photographs you uploaded that have not been purchased by other users <span class="badge badge-delete">Deleted</span></li>
+    <li>Your in-app search history and activity data <span class="badge badge-delete">Deleted</span></li>
+    <li>Advertising identifiers linked to your account <span class="badge badge-delete">Deleted</span></li>
+  </ul>
+
+  <h2>What Data is Retained and Why</h2>
+  <ul class="data-list">
+    <li><strong>Completed transaction records</strong> — Retained for 5 years to comply with Indian financial regulations (GST and Income Tax Act) <span class="badge badge-keep">Retained 5 years</span></li>
+    <li><strong>Photos purchased by other users</strong> — Buyers retain access; your name is removed from the listing within 30 days <span class="badge badge-keep">Anonymised in 30 days</span></li>
+    <li><strong>Razorpay payment records</strong> — Governed by Razorpay's own data retention policy <span class="badge badge-keep">Razorpay policy</span></li>
+  </ul>
+
+  <!-- Partial deletion -->
+  <h2>Delete Specific Data Only (Optional)</h2>
+  <p style="font-size:15.5px; color:#444; margin-bottom:16px;">
+    If you wish to delete only certain data — such as specific uploaded photos, your activity history, or your profile details — without closing your account, you may do so by sending the same email and specifying which data you would like removed. We will action partial deletion requests within 7 business days.
+  </p>
+
+  <div class="info-box">
+    <strong>Questions?</strong> If you need help or have questions about your data, contact us at <a href="mailto:ramanghorpade2069@gmail.com" style="color:var(--crimson); font-weight:600;">ramanghorpade2069@gmail.com</a>. We are happy to assist.
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 <strong>Vermillion View</strong> &nbsp;·&nbsp; <a href="privacy_policy.html" style="color: #DC143C; text-decoration: none;">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
