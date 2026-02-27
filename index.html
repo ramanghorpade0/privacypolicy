@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Vermillion View</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --crimson:   #DC143C;
+    --deep:      #1a0608;
+    --ink:       #1c1c1e;
+    --muted:     #5a5a6a;
+    --rule:      #e8e0d8;
+    --bg:        #faf8f5;
+    --card:      #ffffff;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  header {
+    background: var(--deep);
+    padding: 60px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(220,20,60,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(220,20,60,0.15);
+    border: 1px solid rgba(220,20,60,0.35);
+    border-radius: 999px;
+    padding: 6px 18px 6px 10px;
+    margin-bottom: 28px;
+  }
+  .logo-dot {
+    width: 28px; height: 28px;
+    background: var(--crimson);
+    border-radius: 50%;
+  }
+  .logo-badge span {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  header h1 em {
+    color: var(--crimson);
+    font-style: normal;
+  }
+  .header-meta {
+    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Layout ──────────────────────────────────────── */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+  }
+
+  /* ── Intro block ─────────────────────────────────── */
+  .intro-box {
+    background: var(--card);
+    border-left: 4px solid var(--crimson);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin-bottom: 56px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    font-size: 15.5px;
+    color: #444;
+    font-style: italic;
+  }
+  .intro-box strong { color: var(--crimson); font-style: normal; }
+
+  /* ── Sections ────────────────────────────────────── */
+  section { margin-bottom: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--crimson);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  p { margin-bottom: 14px; color: #333; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Info grid (data table) ──────────────────────── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  @media (max-width: 560px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .info-card .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--crimson);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .info-card .value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ── Highlight list ──────────────────────────────── */
+  ul.policy-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+  ul.policy-list li {
+    padding: 10px 0 10px 28px;
+    border-bottom: 1px solid var(--rule);
+    color: #333;
+    position: relative;
+    font-size: 16px;
+  }
+  ul.policy-list li:last-child { border-bottom: none; }
+  ul.policy-list li::before {
+    content: '▸';
+    color: var(--crimson);
+    position: absolute;
+    left: 0;
+    font-size: 13px;
+    top: 12px;
+  }
+
+  /* ── Callout ─────────────────────────────────────── */
+  .callout {
+    background: #fff8f8;
+    border: 1px solid rgba(220,20,60,0.2);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-top: 16px;
+    font-size: 15.5px;
+    color: #444;
+  }
+  .callout strong { color: var(--crimson); }
+
+  /* ── Contact card ────────────────────────────────── */
+  .contact-card {
+    background: var(--deep);
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .contact-card p { color: rgba(255,255,255,0.65); margin-bottom: 10px; }
+  .contact-card a {
+    color: var(--crimson);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+  }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ── Footer ──────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 13.5px;
+    font-style: italic;
+  }
+  footer strong { color: var(--crimson); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">
+    <div class="logo-dot"></div>
+    <span>Vermillion View</span>
+  </div>
+  <h1>Privacy <em>Policy</em></h1>
+  <p class="header-meta">Effective Date: February 27, 2026 &nbsp;·&nbsp; Last Updated: February 27, 2026</p>
+</header>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>Your privacy matters to us.</strong> This Privacy Policy explains how Vermillion View ("we," "our," or "us") collects, uses, and protects your personal information when you use our photo marketplace application. By using Vermillion View, you agree to the practices described in this policy.
+  </div>
+
+  <!-- 1. Information We Collect -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Information We Collect</h2>
+    </div>
+    <p>We collect the following categories of information to provide and improve our services:</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Account Information</div>
+        <div class="value">Name, email address, and profile photo provided via Google Sign-In</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Uploaded Content</div>
+        <div class="value">Photos you choose to upload for sale, including titles, descriptions, and tags</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Transaction Data</div>
+        <div class="value">Purchase history, payment confirmation IDs, and transaction amounts processed via Razorpay</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Usage Data</div>
+        <div class="value">App interactions, search queries, and browsing activity within the app</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Device Information</div>
+        <div class="value">Device type, operating system version, and unique device identifiers</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Advertising Data</div>
+        <div class="value">Ad interaction data collected by Google AdMob for serving advertisements</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. How We Use Your Information -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>How We Use Your Information</h2>
+    </div>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul class="policy-list">
+      <li>To create and manage your account and authenticate your identity via Google Sign-In</li>
+      <li>To enable you to upload, publish, and sell photographs on our marketplace</li>
+      <li>To process payments and maintain accurate purchase and sales records</li>
+      <li>To deliver purchased photographs to buyers and provide download access</li>
+      <li>To display relevant advertisements through Google AdMob (maximum 3 per day)</li>
+      <li>To improve the performance, security, and features of the application</li>
+      <li>To communicate important updates, transaction confirmations, and support responses</li>
+      <li>To comply with applicable legal obligations and enforce our Terms of Service</li>
+    </ul>
+  </section>
+
+  <!-- 3. Third-Party Services -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Third-Party Services</h2>
+    </div>
+    <p>Vermillion View integrates with trusted third-party services to deliver core functionality. Each service operates under its own privacy policy:</p>
+    <ul class="policy-list">
+      <li><strong>Firebase (Google LLC)</strong> — Authentication, cloud database (Firestore), and file storage. Your data is stored on Google's secure cloud infrastructure. <em>firebase.google.com/support/privacy</em></li>
+      <li><strong>Razorpay</strong> — Payment processing for photo purchases. We do not store your card details; all payment data is handled directly by Razorpay's PCI-DSS compliant systems. <em>razorpay.com/privacy</em></li>
+      <li><strong>Google AdMob</strong> — In-app advertising. AdMob may use device identifiers and usage data to serve personalised advertisements. <em>policies.google.com/privacy</em></li>
+      <li><strong>Google Sign-In</strong> — Account creation and login. Only your name, email, and profile photo are shared with us. <em>policies.google.com/privacy</em></li>
+    </ul>
+  </section>
+
+  <!-- 4. Data Storage and Security -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Data Storage and Security</h2>
+    </div>
+    <p>Your data is stored securely on Google Firebase servers, which maintain industry-standard encryption in transit (TLS) and at rest. We implement Firebase App Check to protect our backend services from unauthorised access.</p>
+    <p>While we take reasonable technical and organisational measures to safeguard your information, no method of transmission over the internet is 100% secure. We encourage you to use a strong, unique password for your Google account.</p>
+    <div class="callout">
+      <strong>Payment Security:</strong> Vermillion View does not store, process, or have access to your credit card, debit card, or banking details. All financial transactions are processed entirely by Razorpay under their security framework.
+    </div>
+  </section>
+
+  <!-- 5. Photo Uploads and Intellectual Property -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Photo Uploads and Intellectual Property</h2>
+    </div>
+    <p>When you upload a photograph to Vermillion View, you represent and warrant that you own the copyright to that image or have the necessary rights to sell it. You retain full ownership of your photos.</p>
+    <p>By uploading, you grant Vermillion View a non-exclusive, royalty-free licence to display your photographs within the app for the purpose of facilitating sales. We do not sell, license, or transfer your photos to any third party beyond what is necessary to operate the marketplace.</p>
+    <p>Purchased photographs are delivered to buyers for personal use only. Resale or redistribution of purchased images is prohibited under our Terms of Service.</p>
+  </section>
+
+  <!-- 6. Advertising -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Advertising</h2>
+    </div>
+    <p>Vermillion View displays interstitial advertisements powered by Google AdMob. Advertisements are shown a maximum of <strong>3 times per day</strong> per user. After this limit is reached, no further ads are displayed until the following day.</p>
+    <p>Google AdMob may collect device identifiers and usage data to serve relevant advertisements. To opt out of personalised advertising, you can adjust your device's advertising settings:</p>
+    <ul class="policy-list">
+      <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalisation</li>
+      <li>Opting out does not remove ads entirely; it limits personalisation based on your profile</li>
+    </ul>
+  </section>
+
+  <!-- 7. Your Rights -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Your Rights</h2>
+    </div>
+    <p>You have the following rights with respect to your personal data:</p>
+    <ul class="policy-list">
+      <li><strong>Access:</strong> You may request a copy of the personal data we hold about you</li>
+      <li><strong>Correction:</strong> You may request correction of inaccurate or incomplete data</li>
+      <li><strong>Deletion:</strong> You may request deletion of your account and associated data by contacting us</li>
+      <li><strong>Withdrawal of Consent:</strong> You may stop using the app at any time; data stored in Firebase will be retained for a period of 90 days before permanent deletion upon account closure</li>
+      <li><strong>Data Portability:</strong> You may request an export of your uploaded content and transaction history</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at the email address provided below.</p>
+  </section>
+
+  <!-- 8. Children's Privacy -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>Vermillion View is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal information, we will delete it promptly. If you believe a child has submitted information to us, please contact us immediately.</p>
+  </section>
+
+  <!-- 9. Changes to This Policy -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. When we make material changes, we will update the "Last Updated" date at the top of this page and, where appropriate, notify you within the app.</p>
+    <p>Your continued use of Vermillion View after any changes constitutes your acceptance of the revised Privacy Policy.</p>
+  </section>
+
+  <!-- 10. Contact -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Contact Us</h2>
+    </div>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+    <div class="contact-card">
+      <p>Vermillion View — Privacy Enquiries</p>
+      <a href="mailto:ramanghorpade2069@gmail.com">ramanghorpade2069@gmail.com</a>
+      <p style="margin-top:12px; font-size:13px;">We aim to respond to all privacy-related enquiries within 7 business days.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2026 <strong>Vermillion View</strong>. All rights reserved. &nbsp;·&nbsp; This policy was last reviewed on February 27, 2026.
+</footer>
+
+</body>
+</html>
